@@ -26,7 +26,7 @@ EOF
 }
 
 resource "google_compute_firewall" "http-server-git-fw" {
-  name    = "allow-http-terraform"
+  name    = "allow-http-terraform1"
   network = "default"
 
   allow {
