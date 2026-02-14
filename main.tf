@@ -1,4 +1,4 @@
-resource "google_compute_instance" "whizlabs" {
+resource "google_compute_instance" "hero-labs-git" {
   name         = var.instance_name
   machine_type = var.instance_type
   zone         = var.instance_zone
@@ -20,12 +20,12 @@ resource "google_compute_instance" "whizlabs" {
 #!/bin/bash
 sudo apt-get update
 sudo apt-get install -y apache2
-echo 'Hello from Whizlabs' | sudo tee /var/www/html/index.html
+echo 'Hello from HeroLabs' | sudo tee /var/www/html/index.html
 sudo service apache2 start
 EOF
 }
 
-resource "google_compute_firewall" "http-server" {
+resource "google_compute_firewall" "http-server-git-fw" {
   name    = "allow-http-terraform"
   network = "default"
 
@@ -35,5 +35,5 @@ resource "google_compute_firewall" "http-server" {
   }
 
   source_ranges = ["0.0.0.0/0"]
-  target_tags   = ["http-server"]
+  target_tags   = ["http-server-git-fw"]
 }
